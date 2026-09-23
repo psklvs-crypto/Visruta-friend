@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Visruta • Vissss 🖤💙</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+}
+
+body{
+    overflow:hidden;
+    font-family:Georgia,"Times New Roman",serif;
+    color:#fff;
+    background:
+        radial-gradient(circle at 50% 20%,#123c72 0%,#081b35 35%,#030711 75%,#000 100%);
+}
+
+/* =========================
+   STAR BACKGROUND
+========================= */
+
+#stars{
+    position:fixed;
+    inset:0;
+    z-index:0;
+    pointer-events:none;
+}
+
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    border-radius:50%;
+    background:white;
+    box-shadow:0 0 9px #55bfff;
+    animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+    from{
+        opacity:.15;
+        transform:scale(.7);
+    }
+    to{
+        opacity:1;
+        transform:scale(1.5);
+    }
+}
+
+/* =========================
+   GENERAL PAGE
+========================= */
+
+.page{
+    position:absolute;
+    inset:0;
+    z-index:2;
+
+    display:none;
+    align-items:center;
+    justify-content:center;
+
+    padding:18px;
+    overflow:auto;
+}
+
+.page.active{
+    display:flex;
+    animation:pageIn .7s ease;
+}
+
+@keyframes pageIn{
+    from{
+        opacity:0;
+        transform:scale(.94) rotateX(4deg);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1) rotateX(0);
+    }
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card{
+    width:min(920px,95vw);
+    max-height:94vh;
+    overflow:auto;
+
+    padding:34px 22px;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(2,9,20,.96),
+            rgba(5,17,35,.92)
+        );
+
+    border:1px solid #46bfff;
+
+    box-shadow:
+        0 0 45px rgba(0,145,255,.18),
+        inset 0 0 35px rgba(0,120,255,.04);
+}
+
+.kicker{
+    margin-bottom:15px;
+
+    color:#83d7ff;
+
+    font-size:11px;
+    letter-spacing:5px;
+}
+
+h1{
+    color:#e8f8ff;
+
+    font-size:clamp(43px,10vw,88px);
+
+    text-shadow:
+        0 0 14px #168eff,
+        0 0 35px #0750a0;
+}
+
+h2{
+    margin:15px;
+
+    color:#bdeaff;
+}
+
+p{
+    max-width:690px;
+
+    margin:15px auto;
+
+    color:#c8d8e6;
+
+    line-height:1.9;
+}
+
+.line{
+    width:115px;
+    height:1px;
+
+    margin:20px auto;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #4ec5ff,
+            transparent
+        );
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.btn{
+    margin:9px;
+
+    padding:14px 25px;
+
+    color:#fff;
+
+    background:#061526;
+
+    border:1px solid #42baff;
+
+    cursor:pointer;
+
+    font-family:Georgia,serif;
+
+    letter-spacing:2px;
+
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 0 25px #087dcc;
+}
+
+/* =========================
+   HEART
+========================= */
+
+.bigIcon{
+    margin-bottom:8px;
+
+    font-size:70px;
+
+    filter:
+        drop-shadow(0 0 16px #168eff);
+}
+
+/* =========================
+   BOOK
+========================= */
+
+.book{
+    width:min(650px,90vw);
+
+    min-height:300px;
+
+    margin:25px auto;
+
+    padding:36px 25px;
+
+    border:2px solid #238fd0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(10,47,82,.75),
+            rgba(1,9,20,.95)
+        );
+
+    box-shadow:
+        0 0 35px rgba(0,120,255,.15);
+}
+
+.bookTitle{
+    color:#d9f5ff;
+
+    font-size:34px;
+
+    text-shadow:
+        0 0 12px #158bdf;
+}
+
+/* =========================
+   PHOTO GALLERY
+========================= */
+
+.photoArea{
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:10px;
+
+    margin:23px auto;
+}
+
+.photoFrame{
+    width:min(62vw,450px);
+    height:min(51vh,420px);
+
+    padding:7px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0c8bd1,
+            #72d8ff,
+            #174d9c
+        );
+
+    box-shadow:
+        0 0 35px rgba(0,145,255,.25);
+}
+
+.photoFrame img{
+    width:100%;
+    height:100%;
+
+    display:block;
+
+    object-fit:cover;
+
+    background:#010307;
+}
+
+.arrow{
+    width:43px;
+    height:43px;
+
+    border-radius:50%;
+
+    color:#fff;
+
+    background:#041221;
+
+    border:1px solid #42baff;
+
+    font-size:27px;
+
+    cursor:pointer;
+}
+
+.counter{
+    margin-top:10px;
+
+    color:#7bd4ff;
+
+    font-size:11px;
+
+    letter-spacing:3px;
+}
+
+/* =========================
+   PASSWORD
+========================= */
+
+input{
+    display:block;
+
+    width:min(280px,80vw);
+
+    margin:20px auto;
+
+    padding:14px;
+
+    text-align:center;
+
+    color:#fff;
+
+    background:#020811;
+
+    border:1px solid #3dbaff;
+
+    outline:none;
+
+    font-size:17px;
+}
+
+/* =========================
+   CYBER DOOR
+========================= */
+
+.doorScene{
+    width:min(600px,90vw);
+
+    height:300px;
+
+    margin:20px auto;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+}
+
+.magicDoor{
+    position:relative;
+
+    width:190px;
+    height:250px;
+
+    border-radius:95px 95px 0 0;
+
+    border:3px solid #45c4ff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #092c51,
+            #020711
+        );
+
+    box-shadow:
+        0 0 20px #168eff,
+        inset 0 0 35px #07549b;
+
+    cursor:pointer;
+
+    transition:.6s;
+}
+
+.magicDoor:hover{
+    transform:scale(1.05);
+
+    box-shadow:
+        0 0 45px #179eff,
+        inset 0 0 40px #086bb5;
+}
+
+.magicDoor:before{
+    content:"✦";
+
+    position:absolute;
+
+    top:30px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    color:#b9ecff;
+
+    font-size:38px;
+
+    text-shadow:
+        0 0 15px #28aaff;
+}
+
+.knob{
+    position:absolute;
+
+    right:24px;
+    top:52%;
+
+    width:12px;
+    height:12px;
+
+    border-radius:50%;
+
+    background:#a8e8ff;
+
+    box-shadow:
+        0 0 14px #39baff;
+}
+
+/* =========================
+   SECRET LETTERS
+========================= */
+
+.letters{
+    display:flex;
+
+    justify-content:center;
+
+    gap:25px;
+
+    margin:25px;
+}
+
+.secretLetter{
+    width:140px;
+    height:140px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border:2px solid #39baff;
+
+    border-radius:50%;
+
+    color:#e3f8ff;
+
+    font-size:70px;
+
+    text-shadow:
+        0 0 25px #159dff;
+
+    box-shadow:
+        0 0 35px rgba(0,140,255,.22);
+
+    cursor:pointer;
+
+    transition:.5s;
+}
+
+.secretLetter:hover{
+    transform:scale(1.08) rotate(7deg);
+}
+
+/* =========================
+   MINI GAME
+========================= */
+
+.gameButtons{
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin:25px;
+}
+
+.gameBtn{
+    width:105px;
+    height:95px;
+
+    color:#fff;
+
+    background:#03101e;
+
+    border:1px solid #3dbaff;
+
+    cursor:pointer;
+
+    font-family:Georgia,serif;
+
+    font-size:15px;
+
+    transition:.3s;
+}
+
+.gameBtn:hover{
+    box-shadow:
+        0 0 23px #087ed0;
+
+    transform:translateY(-3px);
+}
+
+/* =========================
+   MYSTERY BOXES
+========================= */
+
+.boxes{
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+    margin:25px;
+}
+
+.mystery{
+    width:135px;
+    height:115px;
+
+    color:#fff;
+
+    background:#03101e;
+
+    border:1px solid #42baff;
+
+    cursor:pointer;
+
+    font-family:Georgia,serif;
+
+    transition:.3s;
+}
+
+.mystery:hover{
+    transform:
+        translateY(-5px)
+        rotate(-2deg);
+
+    box-shadow:
+        0 0 25px #087ed0;
+}
+
+/* =========================
+   MUSIC
+========================= */
+
+.musicBox{
+    margin:20px auto;
+
+    padding:18px;
+
+    width:min(500px,90vw);
+
+    border:1px solid #238fd0;
+
+    background:rgba(1,8,17,.7);
+}
+
+.musicTitle{
+    color:#91ddff;
+
+    letter-spacing:2px;
+
+    margin-bottom:12px;
+}
+
+audio{
+    width:100%;
+}
+
+/* =========================
+   LETTER
+========================= */
+
+.envelope{
+    width:min(350px,85vw);
+
+    height:200px;
+
+    margin:25px auto;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border:2px solid #40bfff;
+
+    background:#031426;
+
+    cursor:pointer;
+
+    font-size:20px;
+
+    box-shadow:
+        0 0 25px rgba(0,130,255,.15);
+}
+
+.letter{
+    display:none;
+
+    max-width:690px;
+
+    margin:20px auto;
+
+    padding:25px;
+
+    text-align:left;
+
+    line-height:2;
+
+    color:#d2e3ef;
+
+    background:#020a14;
+
+    border:1px solid #329edb;
+}
+
+.letter.show{
+    display:block;
+}
+
+/* =========================
+   FINAL
+========================= */
+
+.final{
+    color:#cfefff;
+
+    font-size:22px;
+
+    line-height:2;
+
+    text-shadow:
+        0 0 10px rgba(0,150,255,.25);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .photoFrame{
+        width:60vw;
+        height:45vh;
+    }
+
+    .arrow{
+        width:36px;
+        height:36px;
+    }
+
+    .magicDoor{
+        width:155px;
+        height:220px;
+    }
+
+    .secretLetter{
+        width:115px;
+        height:115px;
+        font-size:58px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     STAR FIELD
+========================= -->
+
+<div id="stars"></div>
+
+
+<!-- =========================
+     PAGE 0
+========================= -->
+
+<section class="page active" id="page0">
+
+<div class="card">
+
+<div class="bigIcon">
+🖤💙
+</div>
+
+<div class="kicker">
+A LITTLE UNIVERSE FOR
+</div>
+
+<h1>VISRUTA</h1>
+
+<div class="line"></div>
+
+<h2>VISSSS ✦</h2>
+
+<p>
+Welcome to a tiny universe created
+especially for our friendship.
+</p>
+
+<p>
+No birthday.
+No special occasion.
+Just a little surprise for a special friend.
+</p>
+
+<button class="btn" onclick="showPage(1)">
+ENTER THE UNIVERSE ✦
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     PAGE 1
+========================= -->
+
+<section class="page" id="page1">
+
+<div class="card">
+
+<div class="kicker">
+CHAPTER ONE
+</div>
+
+<div class="book">
+
+<div class="bookTitle">
+📖 THE FRIENDSHIP CHRONICLES
+</div>
+
+<div class="line"></div>
+
+<p>
+Every friendship starts somewhere.
+</p>
+
+<p>
+Then come the conversations,
+the jokes, the random moments,
+the arguments that don't last,
+and the memories that stay.
+</p>
+
+<p>
+This little chapter is dedicated
+to Vissss. 🖤💙
+</p>
+
+</div>
+
+<button class="btn" onclick="showPage(2)">
+TURN THE PAGE →
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     PAGE 2
+========================= -->
+
+<section class="page" id="page2">
+
+<div class="card">
+
+<div class="kicker">
+CHAPTER TWO
+</div>
+
+<h1>MEMORIES 📸</h1>
+
+<div class="line"></div>
+
+<p>
+Four photographs.
+Four little pieces of our story.
+</p>
+
+<div class="photoArea">
+
+<button class="arrow" onclick="previousPhoto()">
+‹
+</button>
+
+<div>
+
+<div class="photoFrame">
+
+<img
+id="mainPhoto"
+src="visruta1.jpg"
+alt="Visruta memory">
+
+</div>
+
+<div class="counter" id="photoCounter">
+MEMORY 01 / 04
+</div>
+
+</div>
+
+<button class="arrow" onclick="nextPhoto()">
+›
+</button>
+
+</div>
+
+<button class="btn" onclick="showPage(3)">
+NEXT SECRET →
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     PAGE 3
+========================= -->
+
+<section class="page" id="page3">
+
+<div class="card">
+
+<div class="kicker">
+THE DIGITAL LOCK
+</div>
+
+<h1>🔐</h1>
+
+<div class="line"></div>
+
+<h2>ENTER THE SECRET</h2>
+
+<p>
+Four numbers stand between you
+and the next chapter.
+</p>
+
+<input
+id="password"
+type="password"
+maxlength="4"
+inputmode="numeric"
+placeholder="Enter password">
+
+<button class="btn" onclick="checkPassword()">
+UNLOCK
+</button>
+
+<p id="passwordMessage"></p>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     PAGE 4
+========================= -->
+
+<section class="page" id="page4">
+
+<div class="card">
+
+<div class="kicker">
+THE BLUE DOOR
+</div>
+
+<h1>🌌</h1>
+
+<div class="line"></div>
+
+<p>
+Something is waiting behind this door.
+</p>
+
+<div class="doorScene">
+
+<div
+class="magicDoor"
+onclick="openDoor()">
+
+<div class="knob"></div>
+
+</div>
+
+</div>
+
+<p id="doorMessage">
+The door is waiting for you...
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     PAGE 5
+========================= -->
+
+<section class="page" id="page5">
+
+<div class="card">
+
+<div class="kicker">
+THE HIDDEN CODE
+</div>
+
+<h1>R + V</h1>
+
+<div class="line"></div>
+
+<p>
+Two letters have been hidden
+inside this chapter.
+</p>
+
+<div class="letters">
+
+<div
+class="secretLetter"
+onclick="revealLetter('R')">
+R
+</div>
+
+<div
+class="secretLetter"
+onclick="revealLetter('V')">
+V
+</div>
+
+</div>
+
+<p id="letterMessage">
+Tap either letter...
+</p>
+
+<button class="btn" onclick="showPage(6)">
+CONTINUE →
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     PAGE 6
+========================= -->
+
+<section class="page" id="page6">
+
+<div class="card">
+
+<div class="kicker">
+CHAPTER SIX
+</div>
+
+<h1>MINI GAME 🎮</h1>
+
+<div class="line"></div>
+
+<p>
+Three portals.
+One secret route.
+</p>
+
+<div class="gameButtons">
+
+<button class="gameBtn" onclick="choosePortal(1)">
+🌌<br><br>
+PORTAL 1
+</button>
+
+<button class="gameBtn" onclick="choosePortal(2)">
+🌌<br><br>
+PORTAL 2
+</button>
+
+<button class="gameBtn" onclick="choosePortal(3)">
+🌌<br><br>
+PORTAL 3
+</button>
+
+</div>
+
+<p id="gameMessage">
+Choose your portal...
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     PAGE 7
+========================= -->
+
+<section class="page" id="page7">
+
+<div class="card">
+
+<div class="kicker">
+MYSTERY ROOM
+</div>
+
+<h1>🎁</h1>
+
+<div class="line"></div>
+
+<h2>CHOOSE A SECRET</h2>
+
+<div class="boxes">
+
+<button class="mystery" onclick="openBox(1)">
+🖤<br><br>
+SECRET ONE
+</button>
+
+<button class="mystery" onclick="openBox(2)">
+💙<br><br>
+SECRET TWO
+</button>
+
+<button class="mystery" onclick="openBox(3)">
+✨<br><br>
+SECRET THREE
+</button>
+
+</div>
+
+<p id="boxMessage">
+Choose one...
+</p>
+
+<button class="btn" onclick="showPage(8)">
+NEXT →
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     PAGE 8
+========================= -->
+
+<section class="page" id="page8">
+
+<div class="card">
+
+<div class="kicker">
+YOUR LITTLE SOUNDTRACK
+</div>
+
+<h1>🎵</h1>
+
+<div class="line"></div>
+
+<h2>CHELLA MAGALE</h2>
+
+<p>
+A little soundtrack for this friendship
+journey. 🖤💙
+</p>
+
+<div class="musicBox">
+
+<div class="musicTitle">
+♪ PLAY YOUR SONG
+</div>
+
+<audio controls preload="none">
+<source
+src="chella-magale.mp3"
+type="audio/mpeg">
+
+Your browser does not support audio.
+</audio>
+
+</div>
+
+<p>
+If the music doesn't play,
+check that <strong>chella-magale.mp3</strong>
+is in the same folder as this HTML file.
+</p>
+
+<button class="btn" onclick="showPage(9)">
+OPEN LETTER →
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     PAGE 9
+========================= -->
+
+<section class="page" id="page9">
+
+<div class="card">
+
+<div class="kicker">
+THE FRIENDSHIP LETTER
+</div>
+
+<h1>💌</h1>
+
+<div class="line"></div>
+
+<div
+class="envelope"
+onclick="openLetter()">
+
+💌
+<br><br>
+TAP TO OPEN
+
+</div>
+
+<div class="letter" id="letter">
+
+<h2>Dear Vissss 🖤💙</h2>
+
+<p>
+Visruta, this website isn't for a birthday
+or any particular celebration.
+</p>
+
+<p>
+It's just a tiny collection of memories,
+jokes, secrets and random moments
+made into one little place.
+</p>
+
+<p>
+And because every friendship needs
+at least one completely random joke...
+</p>
+
+<p>
+<strong>
+Why did the Wi-Fi break up with the
+computer?
+</strong>
+</p>
+
+<p>
+Because there was
+<strong>no connection. 😂</strong>
+</p>
+
+<p>
+Okay... terrible joke.
+But that's exactly why it belongs here. 😭
+</p>
+
+<p>
+Keep smiling, Vissss.
+And keep making ordinary moments
+into unforgettable ones.
+</p>
+
+<p>
+— Your friend 🖤💙
+</p>
+
+</div>
+
+<button class="btn" onclick="showPage(10)">
+FINAL SURPRISE →
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     PAGE 10
+========================= -->
+
+<section class="page" id="page10">
+
+<div class="card">
+
+<div class="bigIcon">
+🌌
+</div>
+
+<div class="kicker">
+THE FINAL CHAPTER
+</div>
+
+<h1>VISRUTA</h1>
+
+<div class="line"></div>
+
+<div class="final">
+
+VISSSS 🖤💙
+
+<br><br>
+
+Some friendships don't need
+a special occasion.
+
+<br><br>
+
+They just need:
+
+<br>
+
+random conversations,
+stupid jokes,
+little memories,
+and someone who stays.
+
+<br><br>
+
+🖤 ✦ 💙 ✦ 🌌 ✦ 💙 ✦ 🖤
+
+<br><br>
+
+<strong>
+THIS STORY DOESN'T END HERE.
+</strong>
+
+<br><br>
+
+✨ THE NEXT MEMORY IS STILL WAITING. ✨
+
+</div>
+
+</div>
+
+</section>
+
+
+<script>
+
+/* =========================
+   CREATE STARS
+========================= */
+
+const starBox =
+document.getElementById("stars");
+
+for(let i=0;i<120;i++){
+
+    const star =
+    document.createElement("div");
+
+    star.className="star";
+
+    star.style.left =
+    Math.random()*100+"%";
+
+    star.style.top =
+    Math.random()*100+"%";
+
+    star.style.animationDelay =
+    Math.random()*4+"s";
+
+    const size =
+    1 + Math.random()*3;
+
+    star.style.width =
+    size+"px";
+
+    star.style.height =
+    size+"px";
+
+    starBox.appendChild(star);
+}
+
+
+/* =========================
+   PAGE NAVIGATION
+========================= */
+
+function showPage(number){
+
+    document
+    .querySelectorAll(".page")
+    .forEach(function(page){
+
+        page.classList.remove("active");
+
+    });
+
+    const target =
+    document.getElementById("page"+number);
+
+    if(target){
+
+        target.classList.add("active");
+
+    }
+
+}
+
+
+/* =========================
+   PHOTO GALLERY
+========================= */
+
+let photoNumber = 1;
+
+function updatePhoto(){
+
+    document.getElementById("mainPhoto").src =
+    "visruta"+photoNumber+".jpg";
+
+    document.getElementById("photoCounter").textContent =
+    "MEMORY " +
+    String(photoNumber).padStart(2,"0") +
+    " / 04";
+
+}
+
+function nextPhoto(){
+
+    photoNumber++;
+
+    if(photoNumber > 4){
+        photoNumber = 1;
+    }
+
+    updatePhoto();
+
+}
+
+function previousPhoto(){
+
+    photoNumber--;
+
+    if(photoNumber < 1){
+        photoNumber = 4;
+    }
+
+    updatePhoto();
+
+}
+
+
+/* =========================
+   PASSWORD
+========================= */
+
+function checkPassword(){
+
+    const value =
+    document.getElementById("password").value;
+
+    const message =
+    document.getElementById("passwordMessage");
+
+    if(value === "1722"){
+
+        message.textContent =
+        "🔓 ACCESS GRANTED!";
+
+        setTimeout(function(){
+
+            showPage(4);
+
+        },900);
+
+    }else{
+
+        message.textContent =
+        "🔒 Wrong code... try again.";
+
+    }
+
+}
+
+
+/* =========================
+   MAGIC DOOR
+========================= */
+
+function openDoor(){
+
+    document.getElementById("doorMessage")
+    .textContent =
+    "🌌 The blue door has opened!";
+
+    setTimeout(function(){
+
+        showPage(5);
+
+    },1000);
+
+}
+
+
+/* =========================
+   SECRET R + V
+========================= */
+
+function revealLetter(letter){
+
+    const message =
+    document.getElementById("letterMessage");
+
+    if(letter === "R"){
+
+        message.textContent =
+        "✨ You found R! One secret discovered.";
+
+    }
+
+    if(letter === "V"){
+
+        message.textContent =
+        "💙 You found V! Another secret discovered.";
+
+    }
+
+}
+
+
+/* =========================
+   MINI GAME
+========================= */
+
+const winningPortal =
+Math.floor(Math.random()*3)+1;
+
+function choosePortal(number){
+
+    const message =
+    document.getElementById("gameMessage");
+
+    if(number === winningPortal){
+
+        message.textContent =
+        "🎉 SECRET PORTAL FOUND!";
+
+        setTimeout(function(){
+
+            showPage(7);
+
+        },900);
+
+    }else{
+
+        message.textContent =
+        "🌌 Not this portal! Try again.";
+
+    }
+
+}
+
+
+/* =========================
+   MYSTERY BOXES
+========================= */
+
+function openBox(number){
+
+    const message =
+    document.getElementById("boxMessage");
+
+    if(number === 1){
+
+        message.textContent =
+        "🖤 Secret: The funniest memories are usually the most random ones.";
+
+    }
+
+    if(number === 2){
+
+        message.textContent =
+        "💙 Secret: Vissss has unlocked another part of the friendship story.";
+
+    }
+
+    if(number === 3){
+
+        message.textContent =
+        "✨ Secret: Official friendship achievement unlocked!";
+
+    }
+
+}
+
+
+/* =========================
+   LETTER
+======================= */
+
+function openLetter(){
+
+    document
+    .getElementById("letter")
+    .classList.add("show");
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+showPage(0);
+
+</script>
+
+</body>
+</html>
